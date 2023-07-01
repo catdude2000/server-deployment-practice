@@ -8,6 +8,7 @@ const PORT = process.env.PORT;
 const server = express();  // if use app (or any other var name) instead of server, use app.get (or whatever var) below
 
 const pageNotFoundHandler = require('./routeErrorHandlers/404.js');
+const errorhandler = require('./routeErrorHandlers/500.js')
 const stamper = require('./middleware/stamper.js');
 
 //  (req, res) => {
@@ -18,15 +19,14 @@ const stamper = require('./middleware/stamper.js');
 //   });
 // };
 
+// const errorhandler = (error, req, res, next) => {
+//   res.status(500).send({
+//     error: 500,
+//     route: req.path,
+//     message: `server error: ${error.message}`,
+//   });
+// };
 
-//Why error message in string?
-const errorhandler = (error, req, res, next) => {
-  res.status(500).send({
-    error: 500,
-    route: req.path,
-    message: `server error: ${error.message}`,
-  });
-};
 
 //middleware
 const stamper = (req, res, next) => {
@@ -39,6 +39,12 @@ const stamper = (req, res, next) => {
 server.get('/hello', stamper, (req, res) => res.send(`hello! ${req.timestamp}`));
 
 // server.get('/*')
+server.get('/goodbye', (_, res) => res.send(goodbye));
+
+server.get('/bad/', (req, res, next) => {
+  next({ message: 'this is a bad route'})
+});
+
 server.use('*', pageNotFoundHandler);
 //(req, res) => res.send('Not the droids you\'re looking for'));
 server.use(errorhandler);
