@@ -36,3 +36,9 @@ So ... no, Node.js is not a server, it's a tool you can use to make a server
 <https://www.npmjs.com/package/supertest>
 
 <https://jestjs.io/docs/expect>
+
+<https://github.com/catdude2000/server-deployment-practice/actions>
+
+<https://server-deployment-practice-prod-oxae.onrender.com/>
+
+<https://github.com/catdude2000/server-deployment-practice/pull/1>
