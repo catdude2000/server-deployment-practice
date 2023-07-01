@@ -7,13 +7,14 @@ const server = require('../server.js');
 
 const request = supertest(server);
 
-describe('basic server functions as expected'), () => {
+describe('basic server functions as expected', () => {
   test('request to goodbye route sends goodbye string', async () => {
     const response = await request.get('/goodbye');
     expect(response.text).toBe('goodbye');
   });
+  // test('')
   test('handles undefined routes', async () => {
-    const response = await request.get('/'); //add after slash?
+    const response = await request.get('/pizza'); //add after slash?
     expect(response.status).toEqual(404);
   });
-};
+});
