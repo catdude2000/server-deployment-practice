@@ -1,0 +1,17 @@
+{
+  "name": "server-deployment-practice",
+  "version": "1.0.0",
+  "description": "401N lab 1 server repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  }
+}
