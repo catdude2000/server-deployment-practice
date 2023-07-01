@@ -1,3 +1,5 @@
+'use strict'
+
 const pageNotFoundHandler = (req, res) => {
   res.status(404).send({
     error: 404,
